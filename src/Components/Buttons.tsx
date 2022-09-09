@@ -1,17 +1,11 @@
-import { Component, useState } from "react";
-import { Link } from 'react-router-dom';
 
-const [buttonText, setButtonText] = useState("");
-
-class Button extends Component {
-render(){
+function Button(props: any) {
+    const text = props.text
+    const setPage = props.setPage;
     return (
-        <div>
-            <Link to="/">
-            <p>{buttonText}</p>
-            </Link>
-        </div>
-    )
-}
+        <button onClick={() => setPage(props.component)}>
+            {text}
+        </button>
+        )
 }
 export default Button;

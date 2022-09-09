@@ -1,13 +1,12 @@
-import { Component } from "react";
-
-class Canvas extends Component {
-    render(){
+import Button from "./Buttons";
+function Canvas(props: any) {
         return(
-            <div>
-                <img className="w-screen h-screen" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAADFBMVEWYmZuCg4WZmpxvcHGW7YJ5AAABTklEQVR4nO3QwQ3DMAwAMavef+cEfUW4FcgReO6w3TM/tnlPDl9Oykk5KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTkpJ+WknJSTclJOykk5KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTkpJ+WknJSTclJOykk5KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTkpJ+WknJSTclJOykk5KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTkpJ+WknJSTclJOykk5KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTkpJ+WknJSTclJOykk5KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTkpJ+WknJSTclJOykk5KSflpJyUk3JSTspJOSkn5aSclJNyUk7KSTkpJ+WknJSTclJOykk5KSflpJyUk3JSTspJ/U/Y5txhuw874Aqpr4CHoAAAAABJRU5ErkJggg==" alt="background"></img>
-            </div>
+            <div className="bg-slate-500 w-screen">
+             <Button setPage={props.setPage} component="About" text="About" />
+            <Button setPage={props.setPage} component="Home" text="Home" />
+             <Button setPage={props.setPage} component="Contact" text="Contact" />
+           </div>
         )
-    }
 }
 
 export default Canvas; 
