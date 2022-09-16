@@ -1,44 +1,24 @@
-import React, { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Button from './Components/Buttons';
-import Canvas from './Components/Canvas';
+import Navbar from './Components/Navbar';
+import About from './Pages/About';
+import Contact from './Pages/Contact';
+import Home from './Pages/Home';
 
-// function ComponentDidMount() {
-//   let canvas = document.getElementById('game');
-//   let context = canvas.getContext('2d');
-// }
 
-function Home(props: any) {
-  return (
-    <div>Home</div>
-  )
-}
-function About(props: any) {
-  return (
-    <div>About</div>
-  )
-}
-function Contact(props: any) {
-  return (
-    <div>Contact</div>
-  )
-}
+function App() { 
 
-function App(props: any) { 
-  const [page, setPage] = useState("home");
-  
-const Components = {
-  'home': Home,
-  'about': About,
-  'contact': Contact,
-}
-var Component = Components.home;
-
-  console.log(`Page: ${page}` );
   return (
     <div className="App">
-      <Canvas setPage={setPage} />
-      <Component />
+        <BrowserRouter>
+      < Navbar />
+      <Routes>
+          <Route index element={<Home />} />
+          <Route path="About" element={<About />} />
+          <Route path="Contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+        
     </div>
   );
 }
