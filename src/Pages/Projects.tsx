@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 
-function Home() {
+function Projects() {
     return(
         <div>
-            <h1>HOMEPAGE</h1>
+            <h1>PROJECTS</h1>
         </div>
     )
 }
-export default Home;
+export default Projects;
