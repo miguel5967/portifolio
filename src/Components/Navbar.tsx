@@ -3,14 +3,13 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Tabs } from "@mantine/core";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
-
 function Navbar() {
-  const [parent] = useAutoAnimate();
+  const [parent, somebool] = useAutoAnimate();
   return (
     <nav className="gap-14 px-6 flex flex-row-reverse border-black border-b-2 pb-2 w-full pt-3 justify-between">
       <Tabs defaultValue="Homepage">
         <Tabs.List>
-          <ul className="flex-initial flex gap-14" ref={parent}>
+          <ul className="flex-initial flex gap-14" ref={parent as React.RefObject<HTMLUListElement>}>
             <li>
               <Link to="/">
                 <Tabs.Tab value="Homepage">Homepage</Tabs.Tab>
