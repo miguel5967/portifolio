@@ -6,10 +6,9 @@ import Projects from './Pages/Projects';
 import Layout from './Pages/Layout';
 
 
-function App() { 
-
+function App(state: any) { 
   return (
-    <div className="App">
+    <div className={`App ${state.isDarkMode ? "bg-black" : ""}`}>
         <BrowserRouter>
       <Routes>
           <Route path="/" element={<Layout />} >

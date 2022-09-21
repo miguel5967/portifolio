@@ -1,6 +1,6 @@
 import { Box, Textarea, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { IncomingMail, MessageClient } from "cloudmailin";
+import { MessageClient } from "cloudmailin";
 
 async function SendEmail(values: {
   email: string;
@@ -21,8 +21,8 @@ async function SendEmail(values: {
     test_mode: false,
   });
 
-  if(response.id){
-    window.alert("Email successfully sent!")
+  if (response.id) {
+    window.alert("Email successfully sent!");
   }
 }
 
@@ -44,7 +44,13 @@ function Contact() {
 
   return (
     <Box className="max-w-lg mx-auto mt-7">
-      <h1 className="font-medium text-3xl mb-10">Contact me</h1>
+      <h1 className="font-medium text-3xl mb-10">
+        Contact me
+        <br />
+        <p className="text-xs italic">
+          It will send an email to my personal mail
+        </p>
+      </h1>
       <form onSubmit={form.onSubmit((values) => SendEmail(values))}>
         <TextInput
           withAsterisk
@@ -71,7 +77,7 @@ function Contact() {
           className="bg-transparent hover:bg-gray-200 rounded py-2 px-4 mt-2 border border-b-4 border-t-2 border-gray-300"
           type="submit"
         >
-          Submit
+          Send Email
         </button>
       </form>
     </Box>
