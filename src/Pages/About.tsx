@@ -14,11 +14,11 @@ function About() {
     <div>
       <h1>About me</h1>
       <div className="pt-5 ml-96">
-        {aboutmeText.map((item) => (
-          <div className="flex flex-1 max-w-lg">
+        {aboutmeText.map((item,index) => (
+          <div key={index} className="flex flex-1 pt-4 max-w-xl">
             <GoPrimitiveDot />
             <p className="-mt-1">{item}</p>
-            <br />
+
           </div>
         ))}
       </div>

@@ -29,7 +29,7 @@ function Navbar(props: any) {
             <FaLinkedin size={28} />
           </a>
         </div>
-        <div>
+        <div className="-mt-1">
           <DarkModeSwitch
             checked={props.isDarkMode}
             onChange={props.setDarkMode}
