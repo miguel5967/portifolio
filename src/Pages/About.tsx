@@ -11,14 +11,13 @@ function About() {
   ];
 
   return (
-    <div>
-      <h1>About me</h1>
-      <div className="pt-5 ml-96">
+    <div className="flex flex-col items-center">
+      <h1>A little bit about me</h1>
+      <div>
         {aboutmeText.map((item,index) => (
-          <div key={index} className="flex flex-1 pt-4 max-w-xl">
+          <div key={index} className="flex pt-4">
             <GoPrimitiveDot />
             <p className="-mt-1">{item}</p>
-
           </div>
         ))}
       </div>

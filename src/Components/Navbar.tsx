@@ -7,7 +7,7 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 function Navbar(props: any) {
   const [parent, somebool] = useAutoAnimate();
   return (
-    <nav className="gap-14 px-6 flex  border-black border-b-2 pb-2 w-full pt-3 justify-between">
+    <nav className="gap-14 px-6 flex  border-black border-b-2 pb-4 w-full pt-3 justify-between">
       <div className="mt-2 flex flex-1 justify-between">
         <div className={`flex-1 flex gap-4`}>
           <a target="_blank" href="https://www.facebook.com/1Treeckos/">

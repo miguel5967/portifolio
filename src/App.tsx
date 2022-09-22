@@ -7,7 +7,7 @@ import Layout from "./Pages/Layout";
 import { useState } from "react";
 import { MantineProvider } from "@mantine/core";
 
-function App(state: any) {
+function App() {
   const [isDarkMode, setDarkMode] = useState(true);
   const changeDarkMode = () => {
     setDarkMode((previous) => !previous);
