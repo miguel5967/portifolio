@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Tabs } from "@mantine/core";
-import { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
