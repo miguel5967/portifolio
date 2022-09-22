@@ -74,7 +74,7 @@ function Contact() {
           {...form.getInputProps("message")}
         />
         <button
-          className="bg-transparent hover:bg-gray-200 rounded py-2 px-4 mt-2 border border-b-4 border-t-2 border-gray-300"
+          className="bg-transparent hover:bg-gray-200 rounded py-2 px-4 mt-2 border shadow-md  dark:shadow-white"
           type="submit"
         >
           Send Email
