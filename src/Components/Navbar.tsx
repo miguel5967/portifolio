@@ -45,7 +45,9 @@ function Navbar(props: any) {
             ref={parent as React.RefObject<HTMLUListElement>}
           >
             <li>
-              <Link to="/">
+              <Link to="/" onClick={
+                props.ChangePage
+              }>
                 <Tabs.Tab value="Homepage" className="navButton">
                   Homepage
                 </Tabs.Tab>
