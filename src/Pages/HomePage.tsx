@@ -1,18 +1,12 @@
-import Character from "../Character";
-import Button from "../Components/Button";
+import Game from "../Games/Game";
 
-function Homepage(props: any) {
+function Homepage() {
   return (
-    <div id="myCanvas" className="flex-col justify-center h-full bg-white">
-      <div className="flex">
-        <Button />
-        <Button />
-        <Button />
+    <div id="Container" className=" bg-white w-screen h-60">
+      <div className="flex justify-end pr-10 bg-slate-600 ">
+        <p>Points: 1000</p>
       </div>
-
-      <div className="flex">
-        <Character />
-      </div>
+      <Game />
     </div>
   );
 }

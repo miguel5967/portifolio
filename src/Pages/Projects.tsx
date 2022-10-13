@@ -6,7 +6,7 @@ function Projects() {
       {state.projects.map((project, index) => {
         return (
           <div className='border-black border-t-2' key={index}>
-            <div>
+            <div> 
               <h1>Description</h1>
             </div>
 

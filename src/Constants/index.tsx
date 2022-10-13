@@ -2,7 +2,7 @@ const state = {
   projects: [
     {
       title: "Infocasa",
-      logo: "../src/Images/Infocasa_Logo.png",
+      logo:"./image/Infocasa_Logo_nobg.png",
       descripton:
         "Infocasa is a statistics and research project dedicated to the real estate industry. You can search for houses on all portals in Portugal, do a market analysis, see the average price, average price per square meter of any type of property, market monitoring, create alerts to notify the user, various market reports, price comparison, price evolution, etc.",
     },
