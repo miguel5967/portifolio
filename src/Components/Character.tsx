@@ -1,15 +1,31 @@
-import THREE from "three";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { useAnimations } from "@react-three/drei";
+import { useEffect, useRef } from "react";
+import THREE, { Group, Mesh, TextureLoader } from "three";
+import image from "../image/Character_Idle.gif";
+function Character({ xAxis, yAxis, zAxis, width, height }: any) {
+  const character = useLoader(TextureLoader, image);
+  const meshRef = useRef<Mesh>(null);
 
-function Character({ xAxis, yAxis, zAxis, color, width, height }: any) {
-   const character = new THREE.Group();
+  useFrame(() => {
+    if (!meshRef.current) {
+      return;
+    }
 
-  const body = (
-    <mesh position={[xAxis, yAxis, zAxis]}>
-      <boxBufferGeometry args={[width, height]} />
-      <meshBasicMaterial color={color} map={null} />
+     meshRef.current.translateY(0.1);
+    // meshRef.current.rotation.x +=0.01;
+     meshRef.current.translateY(-0.1);
+  });
+
+  return (
+    <mesh ref={meshRef} position={[xAxis, yAxis, zAxis]}>
+      <planeBufferGeometry
+        attach="geometry"
+        args={[width, height]}
+        backgroundColor="white"
+      />
+      <meshBasicMaterial attach="material" map={character} transparent />
     </mesh>
   );
-
-  return body;
 }
 export default Character;
