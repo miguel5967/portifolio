@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    platformActivated: {},
+    platformActivated: false,
     platformSeleteced: 0
 }
 
@@ -11,6 +11,7 @@ const gameSlice = createSlice({
     reducers: {
         platformSelect: (state: any, action: any) => {
             state.platformSeleteced = action.payload.id
+            state.platformActivated = action.payload.playerSide
         }
     }
 })
