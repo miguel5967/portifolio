@@ -3,32 +3,24 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../Store/hooks";
 import { RootState } from "../Store";
 
-function Platform({
-  xAxis,
-  yAxis,
-  zAxis,
-  color,
-  width,
-  height,
-  playerSide,
-  id,
-}: any) {
+function Platform({ position, color, width, height, id }: any) {
   const [hovered, setHovered] = useState(false);
 
   const dispatch = useAppDispatch();
-  const selected = useAppSelector(
-    (state: RootState) => state.game.platformSeleteced === id
+  const defended = useAppSelector(
+    (store: RootState) => store.game.player.selects[0] === id
   );
-  const count = 0;
+  const attacked = useAppSelector(
+    (store: RootState) => store.game.player.selects[1] === id
+  );
 
-  const dataVector = (
-    playerSide
-      ? [xAxis, yAxis + 0.1, zAxis]
-      : [xAxis, yAxis - 0.1, zAxis - 0.01]
-  ) as Vector3;
-  const data = (hovered ? dataVector : [xAxis, yAxis, zAxis]) as Vector3;
-  const playerSideColor = id > 0 && id < 4 ? "blue" : "red";
-  const playerSideSelect = selected ? playerSideColor : color;
+  const dataVector =
+    id <= 2
+      ? [position[0], position[1] - 0.1, position[2] - 0.01]
+      : [position[0], position[1] + 0.1, position[2]];
+  const data = hovered ? dataVector : position;
+  const playerSideColor = id <= 2 ? "blue" : "red";
+  const playerSideSelect = attacked || defended ? playerSideColor : color;
   const platform = (
     <mesh
       position={data}
@@ -37,7 +29,7 @@ function Platform({
       onClick={() =>
         dispatch({
           type: "game/platformSelect",
-          payload: { id: id, playerSide: playerSide },
+          payload: { id: id, position: data },
         })
       }
     >
@@ -45,6 +37,7 @@ function Platform({
       <meshBasicMaterial color={playerSideSelect} map={null} />
     </mesh>
   );
+
   return platform;
 }
 export default Platform;
