@@ -31,6 +31,7 @@ const gameSlice = createSlice({
       const act = action.payload;
       let isPlayer = state.currPlayer === "player" ? act.id <= 2 : act.id > 2;
 
+      console.log("actID= " + act.id)
       if (isPlayer) {
         state[state.currPlayer].selects[0] = act.id;
       } else {
@@ -53,11 +54,11 @@ const gameSlice = createSlice({
         const genarator  = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
         console.log(genarator);
         defend = state.platform[genarator];
-
-      if (state[state.currPlayer].position != defend) {
-        state[state.currPlayer].position = defend;
-      }
-
+        if (state[state.currPlayer].position != defend) {
+          state[state.currPlayer].position = defend;
+        }
+        state.currPlayer = "player";
+      // console.log( "Defend position" + state[state.currPlayer].position + "=" + defend);
     },
     attack: (state: any) => {
       let attack = state.platform[state.player.selects[1]];
@@ -67,6 +68,9 @@ const gameSlice = createSlice({
       let deffend = state.platform[state.player.selects[0]];
       state[state.currPlayer].position = deffend;
     },
+    changePlatform: (state: any) => {
+      
+    }
   },
 });
 

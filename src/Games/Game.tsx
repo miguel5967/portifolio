@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import Button from "../Components/Button";
 import Character from "../Components/Character";
 import Divider from "../Components/Divider";
+import FireBall from "../Components/FireBall";
 import Platform from "../Components/Platform";
 import { RootState } from "../Store";
 import { useAppSelector } from "../Store/hooks";
@@ -16,15 +17,16 @@ function Game() {
     (store: RootState) => store.game.computer.position
   );
   const platforms = useAppSelector((store: RootState) => store.game.platform);
+  console.log("done")
   return (
     <Canvas>
       {/*
         Platform on Hover - yAxis = 2.1 (Para fazer a sensação de vida no jogo) =>PLAYERSIDE
         Platform on Hover - yAxis = -2.1  e width = 9.9 (Para fazer a sensação de vida no jogo)  => BOTSIDE
          */}
-{platforms.map( (plat, index) => (
-  <Platform id={index} width={10} height={2} color="gray" position={plat}/>
-))}
+      {platforms.map( (plat, index) => (
+        <Platform key={index} id={index} width={10} height={2} color="gray" position={plat}/>
+      ))}
 
       <Divider
         xAxis={0}
@@ -49,6 +51,7 @@ function Game() {
         width={5}
         height={2}
         color={"green"}
+        showFireBall={true}
       />
       <Suspense fallback={null}>
         <Character position={computerLocation} width={1.5} height={1.5} />
